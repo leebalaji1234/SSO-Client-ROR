@@ -1,0 +1,179 @@
+ body {
+    padding-top: 100px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
+    font-size:13px !important;
+}
+
+.navbar-fixed-top .nav {
+    padding: 15px 0;
+}
+
+.navbar-fixed-top .navbar-brand {
+    padding: 0 15px;
+}
+
+@media(min-width:768px) {
+    body {
+        padding-top: 100px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
+    }
+
+    .navbar-fixed-top .navbar-brand {
+        padding: 15px 0;
+    }
+}
+/*Bigtapp product css customization*/
+.navbar-brand img{
+	height: 40px;
+}
+.navbar-inverse{
+	background: rgba(0, 0, 0, 0) linear-gradient(to bottom, #f6f6f6 0%, #ffffff 100%) repeat scroll 0 0;
+	border-top: 5px solid #ededed;
+	clear: both;
+	min-height: 100px;
+	padding: 8px 0;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15); 
+}
+.navbar{
+	border:0;
+	min-height: 50px;
+}
+
+/* navigation menu collapse */
+.navbar-inverse .navbar-nav > li > a {
+  color: #004ea1;
+}
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
+  color: #004ea1 !important;
+  border-radius:4px;
+  background-color: transparent;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15); 
+
+}
+.navbar-inverse .navbar-toggle{
+	background: #171717 none repeat scroll 0 0;
+
+}
+/*./ navigation  menu collapse*/
+
+
+ /*
+	button.btn-responsive-nav {
+		top: 55px;
+	}
+ 	button.btn-responsive-nav {
+		background: #171717;
+		top: 55px;
+		display: block;
+		position: absolute;
+		right: 20px;
+		color: #FFF;
+	}
+
+	header.single-menu button.btn-responsive-nav {
+		top: 30px;
+	}
+
+	header.center button.btn-responsive-nav,
+	header.flat-menu button.btn-responsive-nav {
+		top: 35px;
+	}
+
+	button.btn-responsive-nav:hover,
+	button.btn-responsive-nav:active,
+	button.btn-responsive-nav:focus {
+		color: #CCC;
+	}
+*/
+
+.panel{
+	border-radius:0;
+	box-shadow: 0;
+}
+.input-group-addon{
+	border-radius: 0;
+	background:#f7f7f7;
+}
+.form-control{
+	border-radius: 0;
+}
+.btn-md{
+	border-radius: 0;
+}
+.panel-heading{
+	background: rgba(0, 0, 0, 0) linear-gradient(to bottom, #f6f6f6 0%, #ffffff 100%) repeat scroll 0 0;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15); 
+
+}
+.sharedlinks{
+	border-top: 1px solid#888;
+	padding-top:15px; 
+    font-size:85%;
+}
+#error_explanation h2{
+	font-size:15px;
+	font-weight: bold;
+}
+#formbox{
+	margin-top:50px;
+
+}
+#formbox .panel-body{
+    padding-top:30px;
+}
+#formbox .input-group{
+	margin-bottom: 25px;
+}
+
+#formbox div.submitbtn{
+	margin-top:10px;
+}
+#formbox div.signupbtn{
+	border-top: 1px solid #999; 
+	padding-top:20px
+}
+
+#formbox .text-right{
+	float:right; 
+	font-size: 80%; 
+	position: relative; 
+    top:-10px;
+}
+
+/* Dashboard */
+.bootstrap-tagsinput .tag [data-role="remove"]:after {
+  content: "x";
+  padding: 0px 2px;
+}
+#query{
+	height:100%;
+	width:100%;
+	border:0;
+	padding:6px 12px;
+	background: transparent;
+	border-bottom: 1px solid Scrollbar;
+}
+.klout{
+	background:#E67C69;
+	background-image:url('../images/klout.png');
+	border-radius:15px;
+}
+
+.panelcontent{
+	border-bottom:1px solid #ddd;
+}
+
+.panelcontent h4{
+	margin-top: 30px;
+}
+
+#result .panel-body{
+	background: rgba(0, 0, 0, 0) linear-gradient(to bottom, #f6f6f6 0%, #ffffff 100%) repeat scroll 0 0;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+	padding:0 !important;
+}
+.caretdown{
+	border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px dashed;
+}
+/*./ Dashboard*/

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bigtapp Extracter</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <link href="/css/bootstrap.css" rel="stylesheet">
+  <link href="/css/btproduct.v1.css" rel="stylesheet">
+  <!-- Dashboard -->
+  <% if  controller.controller_name == "home" %>
+
+  <link href="/css/bootstrap-social.css" rel="stylesheet">
+  <link href="/assets/css/font-awesome.css" rel="stylesheet">
+
+  <!-- <link rel="stylesheet" href="/css/reuters.css"> -->
+  <link rel="stylesheet" href="/css/jquery-ui.css">
+
+   <script src="/js/jquery-ui.min.js"></script>
+   <script src="/js/raw.nutch.js"></script>
+   <script src="/core/Core.js"></script>
+   <script src="/core/AbstractManager.js"></script>
+   <script src="/managers/Manager.jquery.js"></script>
+   <script src="/core/Parameter.js"></script>
+   <script src="/core/ParameterStore.js"></script>
+   <script src="/core/AbstractWidget.js"></script>
+   <script src="/widgets/ResultWidget.nutch.raw.js"></script>
+   <script src="/widgets/jquery/PagerWidget.js"></script>
+   <script src="/core/AbstractFacetWidget.js"></script>
+   <script src="/core/AbstractTextWidget.js"></script>
+   <script src="/widgets/TagcloudWidget.js"></script>
+   <script src="/widgets/CurrentSearchWidget.js"></script>
+   <script src="/widgets/AutocompleteWidget.js"></script>
+   <script src="/widgets/CountryCodeWidget.js"></script>
+   <script src="/widgets/CalendarWidget.js"></script>
+   
+  <% end %>
+<!-- ./Dashboard -->
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+               <% if user_signed_in? %>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"  >
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span> 
+                    <span class="icon-bar"></span> 
+                    <span class="icon-bar"></span> 
+                </button>
+                <% end %>
+                <a class="navbar-brand" href="#">
+                    <img class="img-responsive"   src="/images/logo.png" alt="Bigtappanalytics">
+                </a>
+            </div>
+            <% if user_signed_in? %> 
+             <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> 
+               <ul class="nav navbar-nav navbar-right"> 
+                 <li class="dropdown">
+                   <a href="#" class="dropdown-toggle"  
+                   data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome <%= getusername.capitalize %><span class="caret"></span></a>
+               <ul class="dropdown-menu">
+                 <li>
+                  <a href="#"><span class="glyphicon glyphicon-user"></span> Ingester</a>
+                 </li>
+                 <li role="separator" class="divider"></li>
+                  
+                 <li>
+                  
+                  <%= link_to keywords_path  do %>
+                  <span class="glyphicon glyphicon-wrench"></span> Keywords
+                  <% end %>
+
+                 </li>
+                 <li role="separator" class="divider"></li>
+                 <li>
+                  <%= link_to dbconnection_path  do %>
+                   <span class="glyphicon glyphicon-wrench"></span> DB Connections 
+                  <% end %>
+                 </li>
+              </ul>
+                </li>
+               
+               <li><!-- <a href="#" style="color:#024396;"><span class="glyphicon glyphicon-log-out"></span> Logout</a> -->
+                <%= link_to destroy_user_session_path, :method => 'delete' do %>
+                  <span class="glyphicon glyphicon-log-out"></span> Signout
+                <% end %>
+               </li>
+               
+               </ul>
+            </div>
+            <% end %>
+            <!-- /.navbar-collapse --> 
+             
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+	
+
+    <%= yield %>
+	<!-- jQuery -->
+	<script src="/js/jquery.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="/js/bootstrap.js"></script>
+</body>
+</html>
