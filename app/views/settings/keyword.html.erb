@@ -1,30 +1,100 @@
+<nav class="navbar navbar-inverse navbar-lower" role="navigation">
+  <div class="container">
+     <div class="navbar-left" role="search">
+       <ul class="breadcrumb" style="background-color:#fbfbfb;border-radius:0;margin-bottom:0;margin-top:6px;">
+        <li><a href="/" onclick="window.location.href='/';"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Keywords</li>
+      </ul>
+     </div>
+     <!--  <div class="navbar-form navbar-right" role="search">
+
+        <a href="#" class="btn btn-social-icon btn-sm btn-facebook" style="border-radius:15px;"><i class="fa fa-facebook"></i></a>
+        <a href="#" class="btn btn-social-icon btn-sm btn-instagram" style="border-radius:15px;"><i class="fa fa-instagram"></i></a>
+        
+        <a href="#" class="btn btn-social-icon btn-sm btn-danger klout"  ></a>
+      </div> -->
+     
+  </div>
+
+</nav>
 <!-- Page Content -->
 <div class="container">
+ 
   <div id="formbox"  class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
     <div class="panel panel-default" >
       <div class="panel-heading">
-        <div class="panel-title">Keywords</div> 
+        <div class="panel-title">Ingester - Keywords</div> 
         </div>
  <div  class="panel-body" >
+    <div class="alert alert-success" id="msgbar" style="display:none;" > 
+     
+    </div>
+   <div class="form-group">
       
-    <%= form_tag('http://far.away.com/form', authenticity_token: false)  do  %>
-       
-  <div class="form-group">
-      
-     <textarea class="form-control" style="height:200px;" placeholder="Keywords list"></textarea>
+     <textarea name="Key" id="keyinput" class="form-control" style="height:200px;" placeholder="Keywords list"></textarea>
      <em>Example : keyword1,keyword2...</em>
   </div>  
-  <div  class="form-group submitbtn"> 
-    <div class="col-sm-12 controls"> 
-       
-      <input type="submit" class="btn btn-info btn-md btn-block" value="Save" />
+  <div  class="form-group submitbtn  signupbtn"> 
+    <div class="col-sm-12 controls">  
+      <input type="button" class="btn btn-info btn-md btn-block" id="keysubmitbtn" value="Send" />
     </div>
   </div>
-<% end %>
+ 
+<script type="text/javascript">
+$(document).ready(function(){
+$("#msgbar").hide();
+ $("#keysubmitbtn").click(function(){ 
+  if($("#keyinput").val() != 0 || $("#keyinput").val() !=""){
+    $("#keyinput").removeClass("requireField");
+    $.ajax({ 
+      type: "POST",
+      url: "http://52.76.10.229:8080/RESTfulExample/rest/user/add",
+      // dataType : 'jsonp',
+      // jsonp: 'simple',
+      async:true,
+      crossDomain:true,
+      cache:false,
+      // contentType: 'text/plain; charset=utf-8',
+      data:{name: $("#keyinput").val()},
+      // headers: { 'Access-Control-Allow-Origin': '*' },
+      // headers:{'Origin': 'http://192.168.12.189'},
+      // headers:{'Access-Control-Allow-Origin': 'http://192.168.12.189'},
+      // add: function (e, data) {
+
+      //          data.submit();
+      // },
+      success: function(msgdata){
+        
+        $("#keyinput").val('');
+        $("#msgbar").removeClass("alert-danger").addClass("alert-success").html("Keywords added to ingester <a data-dismiss='alert' class='close' href='#''>×</a>").show();
+      },
+      error:function(response){
+        $("#msgbar").removeClass("alert-success").addClass("alert-danger").html("Fail to add ingester keywords <a data-dismiss='alert' class='close' href='#'>×</a>").show();
+      } 
+    });
+
+ // $.post("http://52.76.10.229:8080/RESTfulExamples/rest/user/add",{keyword: $("#keyinput").val()},function(data){
+ //     alert(data);
+ // });
+  }else{ 
+    $("#keyinput").addClass("requireField");
+  }
+  
+
+ });
+
+ function simple(data){
+  alert(data);
+ }
+});
+
+
+</script>
 <!-- /.container -->
 <!-- /.Page Content -->
 </div>
 </div>
 </div>
+ 
 </div>
  

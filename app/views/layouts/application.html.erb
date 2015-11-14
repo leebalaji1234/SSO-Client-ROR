@@ -7,11 +7,19 @@
   <%= csrf_meta_tags %>
   <link href="/css/bootstrap.css" rel="stylesheet">
   <link href="/css/btproduct.v1.css" rel="stylesheet">
-  <!-- Dashboard -->
-  <% if  controller.controller_name == "home" %>
+
+  <!-- jQuery -->
+  <script src="/js/jquery.js"></script>
+
+  <!-- Bootstrap Core JavaScript -->
+  <script src="/js/bootstrap.js"></script>
 
   <link href="/css/bootstrap-social.css" rel="stylesheet">
   <link href="/assets/css/font-awesome.css" rel="stylesheet">
+  <!-- Dashboard -->
+  <% if  controller.controller_name == "home" %>
+
+  
 
   <!-- <link rel="stylesheet" href="/css/reuters.css"> -->
   <link rel="stylesheet" href="/css/jquery-ui.css">
@@ -58,7 +66,7 @@
                     <span class="icon-bar"></span> 
                 </button>
                 <% end %>
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="/">
                     <img class="img-responsive"   src="/images/logo.png" alt="Bigtappanalytics">
                 </a>
             </div>
@@ -71,7 +79,7 @@
                    data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome <%= getusername.capitalize %><span class="caret"></span></a>
                <ul class="dropdown-menu">
                  <li>
-                  <a href="#"><span class="glyphicon glyphicon-user"></span> Ingester</a>
+                  <a href="http://192.168.12.189:8000/admin/settings?c=main" target="blank"><span class="glyphicon glyphicon-wrench"></span> Ingester</a>
                  </li>
                  <li role="separator" class="divider"></li>
                   
@@ -85,7 +93,7 @@
                  <li role="separator" class="divider"></li>
                  <li>
                   <%= link_to dbconnection_path  do %>
-                   <span class="glyphicon glyphicon-wrench"></span> DB Connections 
+                   <span class="glyphicon glyphicon-wrench"></span> RDB Connection 
                   <% end %>
                  </li>
               </ul>
@@ -109,10 +117,6 @@
 	
 
     <%= yield %>
-	<!-- jQuery -->
-	<script src="/js/jquery.js"></script>
-
-	<!-- Bootstrap Core JavaScript -->
-	<script src="/js/bootstrap.js"></script>
+	
 </body>
 </html>

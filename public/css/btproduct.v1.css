@@ -53,6 +53,35 @@
 	background: #171717 none repeat scroll 0 0;
 
 }
+
+/* media screen resized*/
+ 
+	.navbar-form{
+		border-color:#fff !important;
+	}
+
+	.navbar-inverse .navbar-nav .open .dropdown-menu .divider {
+	    background-color: #ddd !important;
+	}
+
+	.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover,.navbar-inverse .navbar-nav > .open > a:active, .navbar-inverse .navbar-nav > .open > a:focus {
+	    background-color: #080808 !important;
+	    color: #fff !important;
+	}
+
+	 .navbar-nav .open .dropdown-menu{
+	 	background-color: #080808 !important;
+	    color: #fff;
+	 }
+	.navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:focus {
+	    background-color: #080808 !important;
+	    color: #fff;
+	}
+	.dropdown-menu > li > a{
+		color: #fff !important;
+	}
+
+/* media screen resized*/
 /*./ navigation  menu collapse*/
 
 
@@ -140,9 +169,13 @@
 }
 
 /* Dashboard */
+#selection span{
+	margin-left: 2px;
+}
 .bootstrap-tagsinput .tag [data-role="remove"]:after {
   content: "x";
   padding: 0px 2px;
+  cursor: pointer !important;
 }
 #query{
 	height:100%;
@@ -175,5 +208,9 @@
 	border-left: 4px solid transparent;
     border-right: 4px solid transparent;
     border-top: 4px dashed;
+}
+.requireField{
+	border:1px solid red;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
 }
 /*./ Dashboard*/

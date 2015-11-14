@@ -1,14 +1,34 @@
+<nav class="navbar navbar-inverse navbar-lower" role="navigation">
+  <div class="container">
+     <div class="navbar-left" role="search">
+       <ul class="breadcrumb" style="background-color:#fbfbfb;border-radius:0;margin-bottom:0;margin-top:6px;">
+        <li><a href="/"  onclick="window.location.href='/';"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">RDB Connection</li>
+      </ul>
+     </div>
+       
+  </div>
+
+</nav>
 <!-- Page Content -->
 <div class="container"  >
   <div id="formbox"  class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
     <div class="panel panel-default" >
       <div class="panel-heading">
-        <div class="panel-title"> Database Connection</div> 
+        <div class="panel-title"> Rdb to Rdf Connection</div> 
         </div>
  <div  class="panel-body" >
       
     <%= form_tag('http://far.away.com/form', authenticity_token: false)  do  %>
-       
+  
+  <div class="form-group">
+     <label>Type of Database </label>
+     <select class="form-control">
+      <option>Mysql</option>
+     </select>
+      
+  </div>
+     
   <div class="form-group">
      <label>Host </label>
      <input class="form-control"   placeholder="Host" />
@@ -25,16 +45,9 @@
      <input class="form-control"   placeholder="Password" />
      <em>Example : &lt; password &gt;</em> 
   </div>
-  <div class="form-group">
-     <label>Type of Database </label>
-     <select class="form-control">
-     	<option>Mysql</option>
-     </select>
-      
-  </div>
+  
 
-
-  <div  class="form-group submitbtn"> 
+  <div  class="form-group submitbtn signupbtn"> 
     <div class="col-sm-12 controls">  
       <input type="submit" class="btn btn-info btn-md btn-block" value="Connect" />
     </div>

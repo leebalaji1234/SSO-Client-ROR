@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   get 'keywords' => 'settings#keyword'
   get 'dbconnection' => 'settings#db'
 
-  devise_for :users
+  # devise_for :users
+  devise_for :users, :controller => {sessions: 'sessions'}
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

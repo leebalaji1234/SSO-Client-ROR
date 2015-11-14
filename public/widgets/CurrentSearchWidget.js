@@ -9,8 +9,8 @@ AjaxSolr.CurrentSearchWidget = AjaxSolr.AbstractWidget.extend({
 
     var q = this.manager.store.get('q').val();
     if (q != '*:*') {
-      alert(q);
-      links.push($('<a href="#"></a>').text('(x) ' + q).click(function () {
+       
+      links.push($('<span class="tag label label-info"></span>').html(q+ ' <span data-role="remove"></span>').click(function () {
         self.manager.store.get('q').val('*:*');
         self.doRequest();
         return false;
@@ -28,7 +28,7 @@ AjaxSolr.CurrentSearchWidget = AjaxSolr.AbstractWidget.extend({
     }
 
     if (links.length > 1) {
-      links.unshift($('<span class="tag label label-danger"> <span data-role="remove"></span></span>"').text('Remove all ').click(function () {
+      links.unshift($('<span class="tag label label-danger" style="cursor:pointer;"> <span data-role="remove"></span></span>"').text('Remove all ').click(function () {
         
         self.manager.store.get('q').val('*:*');
         self.manager.store.remove('fq');
