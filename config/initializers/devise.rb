@@ -22,6 +22,7 @@ Devise.setup do |config|
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
   require 'devise/orm/active_record'
+  require 'omniauth-google-oauth2'
 
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
@@ -260,5 +261,19 @@ Devise.setup do |config|
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
   config.http_authenticatable_on_xhr = false
-config.navigational_formats = ["*/*", :html, :json]
-end
+  config.navigational_formats = ["*/*", :html, :json]
+  # OmniAuth.config.full_host = Rails.env.development? ? 'https://localhost' : 'http://localhost:3000'
+  config.omniauth :google_oauth2, "46611492465-u6a7l3p5uorhckndvu69j30fmkg5m63v.apps.googleusercontent.com","lAhdAGGGv6CLH8POJuafDNkp",{
+   access_type: "online", 
+   approval_prompt: "",
+   setup: (lambda do |env|
+      # request = Rack::Request.new(env)
+      # log = Logger.new("#{Rails.root}/log/my.log")
+      # log.info("strategystarts => #{env}")
+      env['omniauth.strategy'].options['token_params'] = {:redirect_uri => 'http://localhost:81/users/auth/google_oauth2/callback'}
+      # http://e3a098b5.ngrok.io/users/auth/google_oauth2/callback
+    end)
+ }
+  config.omniauth :facebook,"566403536846712","f53ddf8dbd1c126b8904982717e47c8f"
+  config.omniauth :twitter, "GZETVT8M4Q2dAgBTWmmNYSFf4","QyuNESxQi8O0ddUAvNlepE9pDw7JEaReCcvGJRbi0lqUjeSuKv"
+ end

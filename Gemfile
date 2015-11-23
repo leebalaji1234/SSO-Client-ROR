@@ -7,7 +7,16 @@ gem 'rails', '4.2.4'
 # gem 'sqlite3'
 gem 'mysql2', '~> 0.3.18'
 # Use SCSS for stylesheets
+# UI Customization ---------
 gem 'devise'
+gem 'omniauth'
+gem 'omniauth-oauth2'
+
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+gem 'google-api-client', :require => 'google/api_client'
+# UI Ends
 
 gem 'rack-cors', :require => 'rack/cors'
 
