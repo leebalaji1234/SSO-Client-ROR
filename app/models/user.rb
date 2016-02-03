@@ -1,11 +1,20 @@
+require 'bcrypt'
 class User < ActiveRecord::Base
+    
+  # include Devise::Models::DatabaseAuthenticatable
+   alias_attribute :password, :encrypted_password
+   alias_attribute :username, :email
+   # alias_attribute :encrypted_password, :password
+   before_create :add_default_values
+
    TEMP_EMAIL_PREFIX = 'change@me'
    TEMP_EMAIL_REGEX = /\Achange@me/
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  # , :database_authenticatable
+  devise :cas_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,:omniauthable,:omniauth_providers => [:google_oauth2,:facebook,:twitter]
-
+ 
   validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
 
   def self.find_for_oauth(auth, signed_in_resource = nil)
@@ -38,6 +47,10 @@ class User < ActiveRecord::Base
 
   def email_verified?
     self.email && self.email !~ TEMP_EMAIL_REGEX
+  end
+  def add_default_values
+    my_password = BCrypt::Password.create(self.password)
+    self.encrypted_password = my_password
   end
 end
 

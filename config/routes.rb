@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   get 'keywords' => 'settings#keyword'
   get 'dbconnection' => 'settings#db'
 
-  # devise_for :users
-  devise_for :users, :controllers => {omniauth_callbacks: 'omniauth_callbacks'}
+  devise_for :users
+  # devise_for :users, :controllers => {omniauth_callbacks: 'omniauth_callbacks'}
 
   # match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
   # The priority is based upon order of creation: first created -> highest priority.

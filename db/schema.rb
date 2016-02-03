@@ -11,7 +11,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151114101738) do
+ActiveRecord::Schema.define(version: 20151130075200) do
+
+  create_table "casserver_lt", force: :cascade do |t|
+    t.string   "ticket",          limit: 255, null: false
+    t.datetime "created_on",                  null: false
+    t.datetime "consumed"
+    t.string   "client_hostname", limit: 255, null: false
+  end
+
+  create_table "casserver_pgt", force: :cascade do |t|
+    t.string   "ticket",            limit: 255, null: false
+    t.datetime "created_on",                    null: false
+    t.string   "client_hostname",   limit: 255, null: false
+    t.string   "iou",               limit: 255, null: false
+    t.integer  "service_ticket_id", limit: 4,   null: false
+  end
+
+  create_table "casserver_st", force: :cascade do |t|
+    t.string   "ticket",            limit: 255,   null: false
+    t.text     "service",           limit: 65535, null: false
+    t.datetime "created_on",                      null: false
+    t.datetime "consumed"
+    t.string   "client_hostname",   limit: 255,   null: false
+    t.string   "username",          limit: 255,   null: false
+    t.string   "type",              limit: 255,   null: false
+    t.integer  "granted_by_pgt_id", limit: 4
+    t.integer  "granted_by_tgt_id", limit: 4
+  end
+
+  create_table "casserver_tgt", force: :cascade do |t|
+    t.string   "ticket",           limit: 255,   null: false
+    t.datetime "created_on",                     null: false
+    t.string   "client_hostname",  limit: 255,   null: false
+    t.string   "username",         limit: 255,   null: false
+    t.text     "extra_attributes", limit: 65535
+  end
 
   create_table "identities", force: :cascade do |t|
     t.integer  "user_id",    limit: 4

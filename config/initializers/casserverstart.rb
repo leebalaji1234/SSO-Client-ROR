@@ -1,0 +1,1 @@
+execute = `rubycas-server`

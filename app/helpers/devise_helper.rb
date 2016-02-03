@@ -22,4 +22,6 @@ module DeviseHelper
     resource.errors.empty? ? false : true
   end
 
+   
+
 end

@@ -62,6 +62,9 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    devise_cas_authenticatable (1.6.0)
+      devise (>= 1.2.0)
+      rubycas-client (>= 2.2.1)
     erubis (2.7.0)
     execjs (2.6.0)
     extlib (0.9.16)
@@ -179,6 +182,8 @@ GEM
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
     retriable (1.4.1)
+    rubycas-client (2.3.9)
+      activesupport
     sass (3.4.19)
     sass-rails (5.0.4)
       railties (>= 4.0.0, < 5.0)
@@ -227,6 +232,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
   devise
+  devise_cas_authenticatable
   google-api-client
   jbuilder (~> 2.0)
   jquery-rails

@@ -9,6 +9,7 @@ gem 'mysql2', '~> 0.3.18'
 # Use SCSS for stylesheets
 # UI Customization ---------
 gem 'devise'
+gem 'devise_cas_authenticatable'
 gem 'omniauth'
 gem 'omniauth-oauth2'
 
